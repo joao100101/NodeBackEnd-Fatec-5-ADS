@@ -7,7 +7,6 @@ import protectRoutes from './lib/protectRoutes.js'
 import cors from 'cors'
 
 import indexRouter from "./routes/index.js";
-import usersRouter from "./routes/users.js";
 
 // Importa as variáveis de ambiente do arquivo .env
 dotenv.config()
@@ -25,7 +24,6 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 /////////////////////////////////////////////////
 

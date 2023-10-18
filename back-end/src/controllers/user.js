@@ -172,7 +172,13 @@ controller.login = async function(req, res) {
 controller.logout = function(req, res) {
   // Apaga o cookie que contém o token
   console.log("Realizando logout")
-  res.clearCookie('_data_', {path: '/'})
+  res.cookie('_data_', "", {
+    httpOnly: true,       // HTTP only: o cookie ficará inacessível via JS
+    secure: true,
+    sameSite: 'None',
+    path: '/',
+    maxAge: 24 * 60 * 60 * 1000  // 24h
+  })
   // HTTP 204: No content
   res.status(204).end()
 }
