@@ -171,7 +171,8 @@ controller.login = async function(req, res) {
 
 controller.logout = function(req, res) {
   // Apaga o cookie que contém o token
-  res.clearCookie('_data_')
+  console.log("Realizando logout")
+  res.clearCookie('_data_', {path: '/'})
   // HTTP 204: No content
   res.status(204).end()
 }

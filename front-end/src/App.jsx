@@ -20,6 +20,7 @@ import CustomersForm from './pages/CustomersForm'
 
 import CarsForm from './pages/CarsForm'
 import CarsList from './pages/CarsList'
+import Logout from './components/ui/Logout';
 
 function App() {
   return (
@@ -27,10 +28,10 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Box sx={{ 
-            width: '100vw', 
-            minHeight: '100vh', 
-            backgroundColor: 'background.default' 
+          <Box sx={{
+            width: '100vw',
+            minHeight: '100vh',
+            backgroundColor: 'background.default'
           }}>
             <TopBar />
             <Box sx={{
@@ -38,14 +39,15 @@ function App() {
             }}>
 
               <Routes>
-                <Route path="/" element={ <Homepage /> } />
-                <Route path="/login" element={ <Login /> } />
-                <Route path="/customers" element={ <CustomersList /> } />
-                <Route path="/customers/new" element={ <CustomersForm /> } />
-                <Route path="/customers/:id" element={ <CustomersForm /> } />
-                <Route path="/cars" element={ <CarsList /> } />
-                <Route path="/cars/new" element={ <CarsForm /> } />
-                <Route path="/cars/:id" element={ <CarsForm /> } />
+                <Route path="/" element={<Homepage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path='/logout' element={<Logout />} />
+                <Route path="/customers" element={<CustomersList />} />
+                <Route path="/customers/new" element={<CustomersForm />} />
+                <Route path="/customers/:id" element={<CustomersForm />} />
+                <Route path="/cars" element={<CarsList />} />
+                <Route path="/cars/new" element={<CarsForm />} />
+                <Route path="/cars/:id" element={<CarsForm />} />
               </Routes>
 
             </Box>

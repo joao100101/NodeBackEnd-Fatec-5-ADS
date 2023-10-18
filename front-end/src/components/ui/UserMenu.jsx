@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-
+import ConfirmDialog from './ConfirmDialog'
 const UserMenu = ({ user }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [openDialog, setOpenDialog] = useState(false);
@@ -20,14 +20,14 @@ const UserMenu = ({ user }) => {
         setAnchorEl(null);
     }
 
-    const confirmLogout = (event) =>{
+    const confirmLogout = (event) => {
         setOpenDialog(true);
         handleClose(event)
     }
 
-    const handleDialogClose = (event) =>{
+    const handleDialogClose = (answer) => {
         setOpenDialog(false);
-        if(answer) navigate('/logout');
+        if (answer) navigate('/logout');
     }
 
     return (
@@ -35,6 +35,13 @@ const UserMenu = ({ user }) => {
             {
                 user ?
                     <>
+                        <ConfirmDialog
+                            title="Atenção"
+                            open={openDialog}
+                            onClose={handleDialogClose}
+                        >
+                            Deseja realmente sair?
+                        </ConfirmDialog>
                         <Button
                             variant='text'
                             color='secondary'
@@ -54,7 +61,7 @@ const UserMenu = ({ user }) => {
                             <MenuItem onClick={confirmLogout}>
                                 Sair
                             </MenuItem>
-                        
+
                         </Menu>
                     </>
                     :

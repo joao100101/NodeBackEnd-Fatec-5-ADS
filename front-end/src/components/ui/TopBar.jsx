@@ -27,7 +27,8 @@ export default function TopBar() {
     }
     catch(error) {
       // Se não foi possível obter os dados do usuário autenticado,
-      // redirecionamos para a página de login
+      // redirecionamos para a página de login e setamos o loggedInUser para null
+      setLoggedInUser(null)
       if(location.pathname !== '/login') navigate('/login')
     }
   }

@@ -4,7 +4,6 @@ import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
-import Divider from '@mui/material/Divider'
 
 export default function MainMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -64,15 +63,6 @@ export default function MainMenu() {
         >
           Clientes
         </MenuItem>
-
-        <MenuItem 
-          onClick={handleClose}
-          component={Link}
-          to="/login"
-        >
-          Entrar
-        </MenuItem>
-
       </Menu>
     </div>
   );
